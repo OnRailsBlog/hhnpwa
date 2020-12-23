@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: HHNPWA_development
+  username: hhnpwa
+  password: hhnpwa
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
