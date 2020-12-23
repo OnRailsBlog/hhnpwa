@@ -1,0 +1,12 @@
+<div class=" w-3/4 mx-auto p-4">
+  <p class="bg-red-600 text-white text-2xl py-1 px-3">Top Stories</p>
+  <div class="grid grid-cols-3 gap-4">
+    <% @stories.each_with_index do |hn_story_id, top_news_location| %>
+      <turbo-frame id="hn_story_id_<%= hn_story_id %>" src="<%= item_path(hn_story_id) %>">
+        <div class="border rounded-sm">
+          Loading Item <%= top_news_location + 1 %>
+        </div>
+      </turbo-frame>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<turbo-frame id="hn_story_id_<%= @hn_story_id %>">
+  <div class="border rounded-sm flex flex-col">
+    <header class="border flex justify-between">
+        <span class="rounded-full py-1 px-3 bg-red-600 text-white"><%= @item['score'] %></span>
+        <p class="py-1 px-3">
+        <% if @item['type'] == 'job' %>
+          job
+        <% end %>
+        <% if @item['url'] %>
+           <%= URI.parse( @item['url'] ).host %>
+        <% end %>
+        </p>
+    </header>
+    <article class="border flex flex-col">
+      <p class="py-1 px-3 flex-grow">
+        <% if @item['url'].nil? %>
+          <%= link_to @item['title'], item_path(@item['id']) %>
+        <% else %>
+          <%= link_to @item['title'], @item['url'], { target: '_blank', rel: 'noopener' } %>
+        <% end %>
+      </p>
+      <p class="py-1 px-3">
+        <em><%= DateTime.strptime("#{@item['time']}",'%s').strftime('%c') %></em>
+      </p>
+    </article>
+    <% unless @item['type'] == 'job' %>
+      <footer class="border flex justify-between">
+        <p class="py-1 px-3">
+          <%= link_to pluralize(@item['descendants'], 'comment'), item_path(@item['id']) %>
+        </p>
+        <p class="py-1 px-3">
+          <a href="/user/<%= @item['by'] %>"><%= @item['by'] %></a>
+        </p>
+      </footer>
+    <% end %>
+  </div>
+</turbo-frame>
