@@ -1,6 +1,6 @@
 <div class="border rounded-sm flex flex-col" id="<%= dom_id item %>">
   <%= turbo_stream_from item %>
-  <header class="border flex justify-between">
+  <header class="border flex justify-between p-1">
       <span class="rounded-full py-1 px-3 bg-red-600 text-white"><%= item.score %></span>
       <p class="py-1 px-3">
         <% "job" if item.job? %>

@@ -3,6 +3,7 @@
     <p class=" text-2xl flex-grow">Top Stories</p>
     <%= link_to "Refresh", top_path, method: :create, class: "pt-1" %>
   </header>
+  <%= render partial: 'layouts/page_navigation', locals: { page: @page, total_pages: @total_pages, path: top_path } %>
   <div class="grid grid-cols-3 gap-4">
     <%= render @stories %>
   </div>
