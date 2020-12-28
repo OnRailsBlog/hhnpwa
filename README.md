@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a step by step tutorial of the Hacker News Progressive Web App using Ruby on Rails and HOTWire.
 
-Things you may want to cover:
+[Building HHNPWA #1: Setting up for Top Stories](https://onrails.blog/2020/12/23/building-hhnpwa-1-setting-up-for-top-stories/)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Building HHNPWA #2: Streaming Top Items](https://onrails.blog/2020/12/27/building-hhnpwa-2-streaming-top-items/)
