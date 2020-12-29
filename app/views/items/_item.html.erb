@@ -1,32 +1,34 @@
-<div class="border rounded-sm flex flex-col" id="<%= dom_id item %>">
-  <%= turbo_stream_from item %>
-  <header class="border flex justify-between p-1">
+<%= cache item do %>
+  <div class="border rounded-sm flex flex-col h-full w-full" id="<%= dom_id item %>">
+    <%= turbo_stream_from item %>
+    <header class="border flex justify-between p-1">
       <span class="rounded-full py-1 px-3 bg-red-600 text-white"><%= item.score %></span>
       <p class="py-1 px-3">
         <% "job" if item.job? %>
         <%= item.host unless item.host.nil? %>
       </p>
-  </header>
-  <article class="border flex flex-col">
-    <p class="py-1 px-3 flex-grow">
-      <% if item.url.nil? %>
-        <%= link_to item.title, item_path(item.hn_id) %>
-      <% else %>
-        <%= link_to item.title, item.url, { target: '_blank', rel: 'noopener' } %>
-      <% end %>
-    </p>
-    <p class="py-1 px-3">
-      <em><%= item.time.strftime('%c') %></em>
-    </p>
-  </article>
-  <% unless item.job? %>
-    <footer class="border flex justify-between">
-      <p class="py-1 px-3">
-        <%= link_to pluralize(item.descendants, 'comment'), item_path(item.hn_id) %>
+    </header>
+    <article class="border flex flex-col flex-grow">
+      <p class="py-1 px-3 flex-grow text-2xl">
+        <% if item.url.nil? %>
+          <%= link_to item.title, item_path(item.hn_id) %>
+        <% else %>
+          <%= link_to item.title, item.url, { target: '_blank', rel: 'noopener' } %>
+        <% end %>
       </p>
       <p class="py-1 px-3">
-        <a href="/user/<%= item.by %>"><%= item.by %></a>
+        <em><%= item.time.strftime('%c') %></em>
       </p>
-    </footer>
-  <% end %>
-</div>
+    </article>
+    <% unless item.job? %>
+      <footer class="border flex justify-between">
+        <p class="py-1 px-3">
+          <%= link_to pluralize(item.descendants, 'comment'), item_path(item.hn_id) %>
+        </p>
+        <p class="py-1 px-3">
+          <a href="/user/<%= item.by %>"><%= item.by %></a>
+        </p>
+      </footer>
+    <% end %>
+  </div>
+<% end %>

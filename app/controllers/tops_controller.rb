@@ -10,6 +10,7 @@ class TopsController < ApplicationController
                       .limit(ITEMS_PER_PAGE)
                       .offset(@page * ITEMS_PER_PAGE)
                       .includes(:item)
+    @top_item = TopItem.order(:updated_at).last
   end
   
   def create

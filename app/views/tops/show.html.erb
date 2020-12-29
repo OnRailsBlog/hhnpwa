@@ -4,7 +4,9 @@
     <%= link_to "Refresh", top_path, method: :create, class: "pt-1" %>
   </header>
   <%= render partial: 'layouts/page_navigation', locals: { page: @page, total_pages: @total_pages, path: top_path } %>
-  <div class="grid grid-cols-3 gap-4">
-    <%= render @stories %>
-  </div>
+  <%= cache ['top-list', @top_item, @page] do %>
+    <div class="grid grid-cols-3 gap-4">
+      <%= render @stories %>
+    </div>
+  <% end %>
 </div>

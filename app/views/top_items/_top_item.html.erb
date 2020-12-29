@@ -1,4 +1,6 @@
-<div id="<%= dom_id top_item %>">
-  <%= turbo_stream_from top_item %>
-  <%= render top_item.item %>
-</div>
+<%= cache top_item do %>
+  <div class="h-full flex-grow" id="<%= dom_id top_item %>">
+    <%= turbo_stream_from top_item %>
+    <%= render top_item.item %>
+  </div>
+<% end %>

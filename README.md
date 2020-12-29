@@ -6,4 +6,6 @@ This is a step by step tutorial of the Hacker News Progressive Web App using Rub
 
 [Building HHNPWA #2: Streaming Top Items](https://onrails.blog/2020/12/27/building-hhnpwa-2-streaming-top-items/)
 
-[Building HHNPWA #2: Top Item Pagination](https://onrails.blog/2020/12/28/building-hhnpwa-3-top-item-pagination/)
+[Building HHNPWA #3: Top Item Pagination](https://onrails.blog/2020/12/28/building-hhnpwa-3-top-item-pagination/)
+
+[Building HHNPWA #4: Russian Doll Caching](https://onrails.blog/2020/12/29/russian-doll-caching-building-hotwire-hnpwa-4/)

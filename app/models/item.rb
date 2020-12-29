@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_one :top_item
+  after_save :update_associates
   broadcasts
   enum hn_type: [:story, :job]
   
@@ -21,5 +22,9 @@ class Item < ApplicationRecord
     self.score = json['score'] if json['score']
     self.descendants = json['descendants'] if json['descendants']
     self.title = json['title'] if json['title']
+  end
+  
+  def update_associates
+    top_item.touch if top_item.present?
   end
 end
