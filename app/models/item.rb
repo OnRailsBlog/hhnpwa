@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_one :top_item
+  has_many :kids, class_name: "Comment", primary_key: 'hn_id', foreign_key: 'parent_id'
   after_save :update_associates
   broadcasts
   enum hn_type: [:story, :job]

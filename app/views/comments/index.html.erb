@@ -1,0 +1,10 @@
+<header class="bg-red-600 py-1 px-3 text-white flex">
+  <p class="text-2xl flex-grow">
+    <%= link_to "Top Stories", top_path %></p>
+</header>
+
+<%= render @item %>
+
+<%= turbo_frame_tag "comments" do %> 
+  <%= render partial: 'comments', locals: { item: @item, comments: @item.kids.order(:location) } %>
+<% end %>

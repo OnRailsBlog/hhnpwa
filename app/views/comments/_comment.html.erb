@@ -1,0 +1,18 @@
+<% unless comment.dead %>
+  <div class="w-full">
+    <div class="border-l border-b pl-4 mb-4">
+      <%= sanitize comment.text %>
+      <footer class="border-t flex justify-between">
+        <p class="py-1 px-3">
+          <a href="/user/<%= comment.by %>"><strong><%= comment.by %></strong></a>
+        </p>
+        <p class="py-1 px-3">
+          <%= comment.time.strftime('%c') %>
+        </p>
+      </footer>
+    </div>
+    <div class="w-11/12 float-right">
+      <%= render partial: 'comments', locals: { item: @item, comments: comment.kids.order(:location) } %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,5 @@
+<div class="flex flex-col">
+  <% comments.each do |comment| %>
+    <%= turbo_frame_tag dom_id(comment), src: item_comment_path(item.hn_id, comment.hn_id) %>
+  <% end %>
+</div>
