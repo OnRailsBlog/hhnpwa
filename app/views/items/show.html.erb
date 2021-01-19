@@ -4,4 +4,6 @@
 </header>
 <%= render @item %>
 
-<%= turbo_frame_tag "comments", src: item_comments_path(@item.hn_id) %>
+<%= turbo_frame_tag "comments", src: item_comments_path(@item.hn_id) do %>
+  <%= render partial: 'comments/comments', locals: { item: @item, comments: @item.kids.order(:location) } %>
+<% end %>
