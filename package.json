@@ -9,6 +9,7 @@
     "@rails/webpacker": "5.2.1",
     "autoprefixer": "^10.1.0",
     "postcss": "^8.2.1",
+    "stimulus": "^2.0.0",
     "tailwindcss": "^2.0.2"
   },
   "version": "0.1.0",

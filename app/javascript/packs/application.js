@@ -12,3 +12,5 @@ Rails.start();
 ActiveStorage.start();
 
 require("../stylesheets/application.scss");
+
+import "controllers"
